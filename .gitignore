@@ -9,3 +9,4 @@ docs
 tmp.*
 /.idea
 /.DS_Store
+/src/.DS_Store
