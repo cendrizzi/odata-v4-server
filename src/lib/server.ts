@@ -287,7 +287,7 @@ export class ODataServerBase extends Transform{
         }, server.document().requestHandler());
         router.get("/\\$metadata", server.$metadata().requestHandler());
         router.use(server.requestHandler());
-        router.use(server.errorHandler);
+        // router.use(server.errorHandler);
 
         if (typeof path == "number"){
             if (typeof port == "string"){

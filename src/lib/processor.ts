@@ -1386,7 +1386,11 @@ export class ODataProcessor extends Transform {
             }
         }
 
-        if (props.length > 0) {
+        if (Edm.isOpenType(elementType)){
+            props.forEach(function(prop) {
+                context[prop] = result[prop];
+            });
+        } else if (props.length > 0) {
             let metadata = {};
             await Promise.all(props.map(prop => (async prop => {
                 let type: any = Edm.getType(elementType, prop, this.serverType.container);

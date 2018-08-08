@@ -22,7 +22,9 @@
     "test:validator": "nyc mocha --reporter mochawesome --reporter-options reportDir=report,reportName=odata-v4-server,reportTitle=\"OData V4 Server\" src/test/**/validator.spec.ts",
     "test:projection": "nyc mocha --reporter mochawesome --reporter-options reportDir=report,reportName=odata-v4-server,reportTitle=\"OData V4 Server\" src/test/**/projection.spec.ts",
     "prepare": "npm test && npm run build",
-    "typedoc": "rimraf docs && typedoc --name \"JayStack OData v4 Server\" --exclude \"**/?(utils|index).ts\" --excludeExternals --excludeNotExported --hideGenerator --excludePrivate --out docs src/lib"
+    "typedoc": "rimraf docs && typedoc --name \"JayStack OData v4 Server\" --exclude \"**/?(utils|index).ts\" --excludeExternals --excludeNotExported --hideGenerator --excludePrivate --out docs src/lib",
+    "tar-gz-project": "rm -f ./odata-v4-server.tgz && tar --exclude='node_modules/*' --exclude='test/*' --exclude='.git/*' --exclude='.elasticbeanstalk/*' --exclude='.idea/*' -zcvf ./odata-v4-server.tgz .",
+    "copy_tgz_to_api": "rm -f ./../api-service/odata-v4-server.tgz && cp ./odata-v4-server.tgz ./../api-service/."
   },
   "watch": {
     "tsc": {
